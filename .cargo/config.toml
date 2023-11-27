@@ -1,0 +1,6 @@
+[unstable]
+build-std = ["alloc", "core", "compiler_builtins", "std", "panic_abort", "proc_macro"]
+build-std-features = ["compiler-builtins-mem"]
+
+[target.'cfg(target_os = "linux")']
+rustflags = ["-C", "link-arg=-nostartfiles", "--emit", "mir"]
